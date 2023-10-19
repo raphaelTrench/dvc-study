@@ -14,8 +14,9 @@ test= lightgbm.Dataset(X_test,y_test)
 
 
 with Live("custom_dir") as live:
-    lightgbm.train(
+    model = lightgbm.train(
         params={},
+        num_boost_round=10,
         train_set=training,
         valid_sets=[test],
         callbacks=[DVCLiveCallback(live=live)])
@@ -25,4 +26,4 @@ with Live("custom_dir") as live:
     
 
 # instead of joblib.dump(rf, "models/rf")
-save(lightgbm, "models/lgbm", sample_data=X_train)
+save(model, "models/lgbm", sample_data=X_train)

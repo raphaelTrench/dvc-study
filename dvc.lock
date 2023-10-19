@@ -1,0 +1,9 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python training.py
+    deps:
+    - path: training.py
+      hash: md5
+      md5: fb2b52f7771b746f76f3cd2b0dca9bf3
+      size: 828
